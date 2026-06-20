@@ -46,7 +46,7 @@ const handleLogout = () => {
 </script>
 
 <template>
-  <div class="max-w-md mx-auto my-12 p-6 bg-white rounded-xl border border-gray-200 shadow-xs">
+  <div class="max-w-md mx-auto my-12 bg-white rounded-xl border border-gray-200 shadow-xs">
 
     <!-- LOGIN FORM LAYER -->
     <div v-if="!isAuthenticated">

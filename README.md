@@ -13,7 +13,7 @@ cd clinic
 
 Далее читаем web/README.md для локальной разработки VueJS
 
-3. Запустите докер.  Убедитесь по логам, что база данных заполняется данными, а затем старует app.
+3. Запустите докер.  Убедитесь по логам, что база данных заполняется данными, а затем git@github.com:akushnirenko/clinic.gitстарует app.
 ```bash
 docker compose -f ./docker-compose-dev.yml up --build
 ```
@@ -34,7 +34,7 @@ code .
 ## Production installation
 1. Clone project
 ```bash
-git clone git@gitlab.alpha-complex.ru:veda/chz-marking.git
+git clone git@github.com:akushnirenko/clinic.git
 cd chz-marking
 ```
 2. Создайте .env file для подключения к markdb в ВЕДА

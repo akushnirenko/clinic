@@ -14,7 +14,8 @@ onMounted(() => {
 
     <!-- Topbar & Main Menu Router Links Navigation Layout -->
     <nav class="bg-white border-b border-gray-200 py-4 px-6 mb-8 shadow-xs">
-      <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+      <!-- Changed from max-w-5xl to max-w-7xl for a wider desktop presence -->
+      <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
         <span class="text-xl font-black tracking-tight text-blue-600">🏥 Family Clinic Hub</span>
 
         <!-- Navigation Tabs Link Hub (Only fully active if logged in) -->
@@ -47,18 +48,21 @@ onMounted(() => {
     </nav>
 
     <!-- CONTENT DISPLAY LOGIC CONTEXT MATRIX -->
-    <div v-if="!isLoggedIn && $route.path !== '/doctor'">
-      <!-- If visitor wants to see parent pages without a token, show standard login prompt -->
-      <LoginView />
-    </div>
+    <!-- Wrapped content areas in a responsive grid container matching the nav width -->
+    <main class="max-w-7xl mx-auto px-6">
+      <div v-if="!isLoggedIn && $route.path !== '/doctor'">
+        <!-- If visitor wants to see parent pages without a token, show standard login prompt -->
+        <LoginView />
+      </div>
 
-    <div v-else>
-      <!-- LoginView header line contains the small floating 'Sign Out' action button panel -->
-      <LoginView v-if="isLoggedIn" />
+      <div v-else class="space-y-6">
+        <!-- LoginView header line contains the small floating 'Sign Out' action button panel -->
+        <LoginView v-if="isLoggedIn" />
 
-      <!-- Crucial Vue-Router view canvas placeholder: Active route components render cleanly right here! -->
-      <router-view />
-    </div>
+        <!-- Crucial Vue-Router view canvas placeholder: Active route components render cleanly right here! -->
+        <router-view />
+      </div>
+    </main>
 
   </div>
 </template>

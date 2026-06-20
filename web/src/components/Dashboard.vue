@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted } from 'vue'
-import api from '../api'
+import api from '@/api.js'
 
 const children = ref([])
 const isLoading = ref(true)
@@ -80,18 +80,16 @@ onMounted(() => {
       {{ errorMessage }}
     </div>
 
-    <!-- Loading State -->
+    <!-- CONDITIONAL RENDERING CHAIN START (No comments between adjacent structural divs) -->
     <div v-if="isLoading" class="text-center py-12 text-gray-500 font-medium">
       Loading family profiles...
     </div>
 
-    <!-- Empty State -->
-    <div v-elif="children.length === 0" class="text-center py-12 bg-gray-50 rounded-xl border border-dashed border-gray-300">
+    <div v-else-if="children.length === 0" class="text-center py-12 bg-gray-50 rounded-xl border border-dashed border-gray-300">
       <p class="text-gray-600 font-medium mb-2">No child profiles found</p>
       <p class="text-sm text-gray-400">Click the button above to add your first child profile.</p>
     </div>
 
-    <!-- Grid List of Children Cards -->
     <div v-else class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       <div
         v-for="child in children"
@@ -114,6 +112,7 @@ onMounted(() => {
         </div>
       </div>
     </div>
+    <!-- CONDITIONAL RENDERING CHAIN END -->
 
     <!-- MODAL POPUP FOR ADDING CHILD -->
     <div v-if="showModal" class="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">

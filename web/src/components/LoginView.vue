@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import api from '../api'
+import api from '@/api.js'
 
 // Form inputs
 const email = ref('')

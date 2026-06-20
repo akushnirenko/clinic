@@ -84,7 +84,7 @@ CREATE TABLE appointments (
     status appointment_status NOT NULL DEFAULT 'scheduled',
     FOREIGN KEY (patient_id) REFERENCES patients(id) ON DELETE CASCADE,
     FOREIGN KEY (doctor_id) REFERENCES doctors(id) ON DELETE CASCADE,
-    
+
     -- ЗАЩИТА ОТ ДВОЙНОЙ ЗАПИСИ НА ОДИН СЛОТ К ОДНОМУ ВРАЧУ
     CONSTRAINT unique_doctor_time_slot UNIQUE (doctor_id, appointment_date, appointment_time)
 );
@@ -131,7 +131,7 @@ CREATE INDEX idx_medical_records_patient ON medical_records(patient_id);
 -- ============================================================================
 
 -- 4 базовые специальности
-INSERT INTO specialties (name) VALUES 
+INSERT INTO specialties (name) VALUES
 ('Педиатр'), ('Отоларинголог (ЛОР)'), ('Детский хирург'), ('Офтальмолог');
 
 -- 10 Врачей
@@ -147,13 +147,22 @@ INSERT INTO doctors (specialty_id, first_name, last_name, room_number, phone) VA
 (4, 'Наталья', 'Соколова', '401', '+79994445566'),
 (4, 'Татьяна', 'Морозова', '402', '+79994445567');
 
--- 5 Пользователей (Родителей)
+-- ============================================================================
+-- 5 ПОЛЬЗОВАТЕЛЕЙ (РОДИТЕЛЕЙ)
+-- ПРИМЕЧАНИЕ: Для всех учетных записей ниже установлен пароль: password123
+-- Хэш сгенерирован непосредственно внутри контейнера вашего приложения
+-- ============================================================================
 INSERT INTO users (email, password_hash, phone) VALUES
-('parent1@example.com', 'hash_pass_1', '+79001234561'),
-('parent2@example.com', 'hash_pass_2', '+79001234562'),
-('parent3@example.com', 'hash_pass_3', '+79001234563'),
-('parent4@example.com', 'hash_pass_4', '+79001234564'),
-('parent5@example.com', 'hash_pass_5', '+79001234565');
+-- Пароль для входа: password123
+('parent1@example.com', '$2b$12$JV8YlJ3wzczNYsEkp8wSauvITbeRf2.thhSflPGAgvMR8U/HyqxGO', '+79001234561'),
+-- Пароль для входа: password123
+('parent2@example.com', '$2b$12$JV8YlJ3wzczNYsEkp8wSauvITbeRf2.thhSflPGAgvMR8U/HyqxGO', '+79001234562'),
+-- Пароль для входа: password123
+('parent3@example.com', '$2b$12$JV8YlJ3wzczNYsEkp8wSauvITbeRf2.thhSflPGAgvMR8U/HyqxGO', '+79001234563'),
+-- Пароль для входа: password123
+('parent4@example.com', '$2b$12$JV8YlJ3wzczNYsEkp8wSauvITbeRf2.thhSflPGAgvMR8U/HyqxGO', '+79001234564'),
+-- Пароль для входа: password123
+('parent5@example.com', '$2b$12$JV8YlJ3wzczNYsEkp8wSauvITbeRf2.thhSflPGAgvMR8U/HyqxGO', '+79001234565');
 
 -- 20 Пациентов (Детей), распределенных по родителям
 INSERT INTO patients (user_id, first_name, last_name, birth_date, snils) VALUES

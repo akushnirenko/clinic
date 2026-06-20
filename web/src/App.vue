@@ -16,7 +16,7 @@ onMounted(() => {
     <nav class="bg-white border-b border-gray-200 py-4 px-6 mb-8 shadow-xs">
       <!-- Changed from max-w-5xl to max-w-7xl for a wider desktop presence -->
       <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-        <span class="text-xl font-black tracking-tight text-blue-600">🏥 Family Clinic Hub</span>
+        <span class="text-xl font-black tracking-tight text-blue-600">🏥 Детская поликлиника</span>
 
         <!-- Navigation Tabs Link Hub (Only fully active if logged in) -->
         <div class="flex items-center space-x-1 bg-gray-100 p-1 rounded-xl text-sm font-medium">

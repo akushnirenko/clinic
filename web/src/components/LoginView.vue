@@ -51,24 +51,24 @@ const handleLogout = () => {
     <!-- LOGIN FORM LAYER -->
     <div v-if="!isAuthenticated">
       <div class="text-center mb-6">
-        <h2 class="text-2xl font-bold text-gray-800">Family Clinic Login</h2>
-        <p class="text-sm text-gray-400 mt-1">Sign in to access your parent dashboard</p>
+        <h2 class="text-2xl font-bold text-gray-800">Детская Поликлиника</h2>
+        <p class="text-sm text-gray-400 mt-1">Зайди для входа в кабинет родителя</p>
       </div>
 
       <form @submit.prevent="handleLogin" class="space-y-4">
         <div>
-          <label class="block text-sm font-medium text-gray-700">Email Address</label>
+          <label class="block text-sm font-medium text-gray-700">Email</label>
           <input
             v-model="email"
             type="email"
             required
-            placeholder="parent@example.com"
+            placeholder="parent1@example.com"
             class="mt-1 w-full border border-gray-300 rounded-lg p-2.5 focus:ring-2 focus:ring-blue-500 focus:outline-none text-sm transition"
           />
         </div>
 
         <div>
-          <label class="block text-sm font-medium text-gray-700">Password</label>
+          <label class="block text-sm font-medium text-gray-700">Пароль</label>
           <input
             v-model="password"
             type="password"
@@ -84,7 +84,7 @@ const handleLogout = () => {
           :disabled="isLoading"
           class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 rounded-lg transition disabled:bg-blue-400 disabled:cursor-not-allowed text-sm shadow-xs"
         >
-          {{ isLoading ? 'Authenticating...' : 'Sign In' }}
+          {{ isLoading ? 'Authenticating...' : 'Вход в систему' }}
         </button>
       </form>
 
@@ -98,13 +98,13 @@ const handleLogout = () => {
     <div v-else class="flex justify-between items-center bg-gray-50 p-3 rounded-lg border border-gray-100">
       <div class="flex items-center space-x-2">
         <span class="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse"></span>
-        <p class="text-sm font-medium text-gray-600">Authenticated Session Active</p>
+        <p class="text-sm font-medium text-gray-600">Вход выполнен</p>
       </div>
       <button
         @click="handleLogout"
         class="text-xs bg-gray-200 hover:bg-gray-300 text-gray-700 font-medium px-3 py-1.5 rounded-md transition"
       >
-        Sign Out
+        Выход
       </button>
     </div>
 

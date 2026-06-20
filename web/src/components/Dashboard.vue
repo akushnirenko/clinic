@@ -64,14 +64,14 @@ onMounted(() => {
     <!-- Header banner -->
     <div class="flex justify-between items-center border-b border-gray-200 pb-4 mb-6">
       <div>
-        <h1 class="text-2xl font-bold text-gray-800">Parent Dashboard</h1>
-        <p class="text-sm text-gray-500">Manage your family's medical profiles</p>
+        <h1 class="text-2xl font-bold text-gray-800">Уголок Родителя</h1>
+        <p class="text-sm text-gray-500">Упрафление профилями моих детей</p>
       </div>
       <button
         @click="showModal = true"
         class="bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2 rounded-lg transition"
       >
-        + Add Child Profile
+        + Добавить ребенка
       </button>
     </div>
 
@@ -107,8 +107,8 @@ onMounted(() => {
         </div>
 
         <div class="space-y-1 text-sm text-gray-600 border-t border-gray-100 pt-3">
-          <p><strong>Birth Date:</strong> {{ child.birth_date }}</p>
-          <p><strong>SNILS:</strong> {{ child.snils || 'Not Provided' }}</p>
+          <p><strong>День рождения:</strong> {{ child.birth_date }}</p>
+          <p><strong>СНИЛС:</strong> {{ child.snils || 'Not Provided' }}</p>
         </div>
       </div>
     </div>

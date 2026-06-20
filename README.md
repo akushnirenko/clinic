@@ -10,6 +10,9 @@ cd ~/education/clinic
 git clone git@github.com:akushnirenko/clinic.git
 cd clinic
 ```
+
+Далее читаем web/README.md для локальной разработки VueJS
+
 3. Запустите докер.  Убедитесь по логам, что база данных заполняется данными, а затем старует app.
 ```bash
 docker compose -f ./docker-compose-dev.yml up --build

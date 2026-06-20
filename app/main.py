@@ -1,0 +1,15 @@
+from fastapi import FastAPI
+#from .database import create_db
+#from .routes import post, user, auth
+#from .config import settings
+
+#create_db()
+app = FastAPI()
+
+#app.include_router(post.router)
+#app.include_router(user.router)
+#app.include_router(auth.router)
+
+@app.get("/")
+def root():
+    return {"message": "Hello World"}

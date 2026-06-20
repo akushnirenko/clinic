@@ -5,10 +5,29 @@ from sqlalchemy import select
 from typing import List
 
 from ..database import get_db
-from ..models import Appointment, MedicalRecord, Patient, AppointmentStatus
+from ..models import Appointment, MedicalRecord, Patient, AppointmentStatus, Doctor
 from ..schemas import MedicalRecordResponse, MedicalRecordCreate, AppointmentResponse
 
 router = APIRouter(prefix="/api/v1/doctors", tags=["Doctor Panel"])
+
+@router.get("/all")
+def get_all_doctors(db: Session = Depends(get_db)):
+    """
+    Возвращает список всех врачей клиники с их специальностями.
+    """
+    stmt = select(Doctor)
+    doctors = db.scalars(stmt).all()
+
+    result = []
+    for doc in doctors:
+        result.append({
+            "id": doc.id,
+            "full_name": f"{doc.first_name} {doc.last_name}",
+            "room": doc.room_number,
+            "specialty": doc.specialty.name
+        })
+    return result
+
 
 @router.get("/journal", response_model=List[AppointmentResponse])
 def get_doctor_journal(doctor_id: int, date_str: str, db: Session = Depends(get_db)):

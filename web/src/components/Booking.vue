@@ -16,16 +16,18 @@ const message = ref('')
 // Загрузка детей и врачей при старте
 onMounted(async () => {
   try {
+    // 1. Загружаем детей родителя
     const ptsRes = await api.get('/patients/')
     patients.value = ptsRes.data
 
-    // Тестовый роут, который мы делали для проверки докторов
-    const docsRes = await api.get('/test-models')
-    doctors.value = docsRes.data.doctors_found
+    // 2. Загружаем врачей через правильный эндпоинт со множественным числом 'doctors'
+    const docsRes = await api.get('/doctors/all')
+    doctors.value = docsRes.data
   } catch (err) {
     console.error('Ошибка загрузки справочников:', err)
   }
 })
+
 
 // Следим за изменением доктора или даты, чтобы обновить слоты времени
 watch([selectedDoctor, selectedDate], async () => {

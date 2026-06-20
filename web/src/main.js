@@ -1,6 +1,10 @@
-import './assets/main.css'
-
 import { createApp } from 'vue'
 import App from './App.vue'
+import router from './router' // <-- Import your router configuration
+import './assets/main.css'
 
-createApp(App).mount('#app')
+const app = createApp(App)
+
+app.use(router) // <-- Tell Vue to use Vue Router navigation plugins
+
+app.mount('#app')

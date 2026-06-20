@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from .routes import auth, patients #, appointments
+from .routes import auth, patients, appointments, doctors
 
 app = FastAPI(title="Family Clinic API v1")
 
@@ -16,7 +16,8 @@ app.add_middleware(
 # Include core functional routers
 app.include_router(auth.router)
 app.include_router(patients.router)
-#app.include_router(appointments.router)
+app.include_router(appointments.router)
+app.include_router(doctors.router)
 
 @app.get("/")
 def root():

@@ -1,6 +1,6 @@
 services:
   app:
-    build: 
+    build:
       context: ./app
       dockerfile: Dockerfile
     ports:
@@ -39,6 +39,16 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+
+  web:  # Vue frontend
+    build: ./web
+    ports:
+      - "8080:80"  # Map host port 8080 → container port 80
+    depends_on:
+      - app
+    env_file:
+      - ./web/.env.production
+
 
 volumes:
   postgres-db:

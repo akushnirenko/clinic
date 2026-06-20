@@ -76,7 +76,7 @@ const submitConsultation = async () => {
 </script>
 
 <template>
-  <div class="max-w-5xl mx-auto p-6">
+  <div class="w-full px-4 md:px-8 py-6">
     <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-xs mb-6 flex flex-col md:flex-row gap-4 justify-between items-center">
       <div>
         <h1 class="text-xl font-bold text-gray-800">🩺 Рабочее место врача</h1>

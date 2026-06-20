@@ -60,7 +60,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="max-w-5xl mx-auto p-6">
+  <div class="w-full px-4 md:px-8 py-6">
     <!-- Header banner -->
     <div class="flex justify-between items-center border-b border-gray-200 pb-4 mb-6">
       <div>
